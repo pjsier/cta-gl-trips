@@ -1,0 +1,7 @@
+data/*.zip
+data/*.txt
+data/*.htm
+data/*.json
+.DS_Store
+.vscode
+node_modules
