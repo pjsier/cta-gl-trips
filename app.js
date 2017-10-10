@@ -8,7 +8,7 @@ import {json as requestJson} from 'd3-request';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoicGpzaWVyIiwiYSI6IjJNaFFhUTgifQ.PPa4hKpIgxQ-8lNDbhu-xA';
 const DATA_URL = {
-  TRIPS: 'data/trip_line_segments.json'
+  TRIPS: 'https://raw.githubusercontent.com/pjsier/cta-gl-trips/gh-pages/data/trip_line_segments.json'
 };
 
 class Root extends Component {

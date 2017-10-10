@@ -2,8 +2,10 @@
 // delete the local development overrides at the bottom of this file
 
 // avoid destructuring for older Node version support
-const resolve = require('path').resolve;
+const path = require('path');
+const resolve = path.resolve;
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const CONFIG = {
   entry: {
@@ -25,6 +27,12 @@ const CONFIG = {
     }]
   },
 
+  output: {
+    path: __dirname,
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[chunkhash].js'
+  },
+
   resolve: {
     alias: {
       // From mapbox-gl-js README. Required for non-browserify bundlers (e.g. webpack):
@@ -34,7 +42,8 @@ const CONFIG = {
 
   // Optional: Enables reading mapbox token from environment variable
   plugins: [
-    new webpack.EnvironmentPlugin(['MapboxAccessToken'])
+    new webpack.EnvironmentPlugin(['MapboxAccessToken']),
+    new HtmlWebpackPlugin({ template: './template.html' })
   ]
 };
 

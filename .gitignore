@@ -2,6 +2,7 @@ data/*.zip
 data/*.txt
 data/*.htm
 data/*.json
+!data/trip_line_segments.json
 .DS_Store
 .vscode
 node_modules

@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build": "webpack --progress --profile --colors",
     "start-local": "webpack-dev-server --env.local --progress --hot --port 3030 --open",
     "start": "webpack-dev-server --progress --hot --port 3030 --open"
   },
@@ -13,6 +14,7 @@
   },
   "devDependencies": {
     "buble-loader": "^0.4.0",
+    "html-webpack-plugin": "^2.30.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
   }
