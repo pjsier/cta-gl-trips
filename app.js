@@ -80,7 +80,7 @@ class Root extends Component {
         mapboxApiAccessToken={MAPBOX_TOKEN}>
         <DeckGLOverlay viewport={viewport}
           trips={trips}
-          trailLength={90}
+          trailLength={15}
           time={time}
           />
       </MapGL>
