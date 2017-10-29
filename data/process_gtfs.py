@@ -2,7 +2,7 @@ from __future__ import print_function, division
 import os
 import json
 import pandas as pd
-from shapely.ops import split, snap
+from shapely.ops import snap
 from shapely.geometry import Point, LineString
 
 
@@ -16,16 +16,6 @@ END_TIME = get_seconds('18:00:00')
 MAX_TIME_VAL = 1800
 
 EL_ROUTE_IDS = ['Red', 'P', 'Y', 'Blue', 'Pink', 'G', 'Org', 'Brn']
-# EL_COLOR_MAP = {
-#     'Red Line': [198, 12, 48],
-#     'Purple Line': [82, 35, 152],
-#     'Yellow Line': [249, 227, 0],
-#     'Blue Line': [0, 161, 222],
-#     'Pink Line': [226, 126, 166],
-#     'Green Line': [0, 155, 58],
-#     'Orange Line': [249, 70, 28],
-#     'Brown Line': [98, 54, 27]
-# }
 
 def get_line_segment(linestring, origin, destination):
     if linestring.type == 'GeometryCollection':
@@ -113,7 +103,7 @@ if __name__ == '__main__':
         shape_rows = shape_df.loc[shape_df['shape_id'] == shape_id].to_dict(orient='records')
         shape_map[shape_id] = LineString(
             [Point(s['shape_pt_lon'], s['shape_pt_lat']) for s in shape_rows]
-        ).simplify(0.01)
+        ).simplify(0.001)
 
     route_rows = pd.read_csv(os.path.join(BASE_DIR, 'routes.txt')).to_dict(orient='records')
     route_map = {r['route_id']: r['route_long_name'] for r in route_rows}
